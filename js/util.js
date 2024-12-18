@@ -125,8 +125,8 @@ function countNegs2(cellI, cellJ, mat) {
             if (j < 0 || j >= mat[i].length) continue
 
 
-            if (mat[i][j]) count++
         }
+        if (mat[i][j]) count++
     }
     return count
 }
