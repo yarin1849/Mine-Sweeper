@@ -9,16 +9,18 @@
 
 </head>
 
-<body onload="onInit()">
+<body oncontextmenu="return false" onload="onInit()">
     <h1>Mine Sweeper</h1>
 
     <table class="board">
         <tbody class="board-body"> </tbody>
     </table>
 
+    <button class="btn-restart" onclick="gameOver()">Play Again</button>
+
     <!-- <button class="btn-select-cell" onclick="onCellClicked()"></button> -->
 
-
+    <footer>Yarin Bracha</footer>
     <script src="js/main.js"></script>
     <script src="js/util.js"></script>
 </body>

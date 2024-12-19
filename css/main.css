@@ -1,6 +1,7 @@
 .board {
     border-collapse: collapse;
     margin: 20px auto;
+    flex: 1
 }
 
 .cell {
@@ -31,12 +32,29 @@
     border: none;
 }
 
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #f1f1f1;
+    text-align: center;
+    padding: 10px;
+    font-size: 14px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #333;
+}
 
-
-
-
-
-
+.btn-restart {
+    flex: 10px;
+    border-radius: 5px;
+    display: none;
+    position: fixed;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 5px;
+    cursor: pointer;
+}
 
 body {
     background: #838383;
