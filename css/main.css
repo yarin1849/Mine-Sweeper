@@ -9,6 +9,15 @@
     border: 1px solid black;
     text-align: center;
     vertical-align: middle;
+    background-color: rgb(128, 128, 128);
+    cursor: pointer;
+    color: transparent;
+}
+
+.cell.revealed {
+    background-color: rgb(166, 166, 166);
+    color: black;
+    cursor: default;
 }
 
 .pressed {
@@ -16,7 +25,11 @@
 }
 
 
-
+.shown {
+    /* background-color: aqua; */
+    background-color: blue;
+    border: none;
+}
 
 
 
