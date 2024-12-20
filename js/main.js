@@ -53,6 +53,7 @@ function createBoard() {
 
     board[2][2].isMine = board[0][0].isMine = true
 
+
     // placeMines(board)
 
 
@@ -91,12 +92,13 @@ function renderBoard() {
             strHTML += `
                 <td class="cell"
                     onclick="onCellClicked(this, ${i}, ${j})"
+                    oncontextmenu="cellRightClicked(event, ${i}, ${j})"
                     data-i="${i}" 
                     data-j="${j}">
                     ${gBoard[i][j].isMine ? MINE : setMinesNegsCount(gBoard, i, j)}
                 </td>\n`;
         }
-        strHTML += `</tr>\n`;
+        strHTML += `</tr>\n`
     }
 
     const elBoard = document.querySelector('.board-body')
@@ -107,10 +109,17 @@ function renderBoard() {
 function onCellClicked(elCell, i, j) {
     var cell = gBoard[i][j]
 
+    if (elCell.classList.contains('flagged')) return
+
+
     if (cell.isShown) return
     cell.isShown = true
 
     elCell.classList.add('revealed')
+
+
+
+
 
     if (cell.isMine) {
         // console.log('Game Over')
@@ -121,8 +130,6 @@ function onCellClicked(elCell, i, j) {
         const mineCount = setMinesNegsCount(gBoard, i, j)
         elCell.innerHTML = mineCount || ''
     }
-
-
 }
 
 
@@ -176,25 +183,40 @@ function gameOver() {
 }
 
 function cellRightClicked(event, i, j) {
+    event.preventDefault(); // Prevent the default right-click menu
 
-    event.preventDefault();
+    const cell = gBoard[i][j]
 
-    var cell = gBoardGame[i][j]
+    // Only allow marking if the cell is not revealed
+    if (!cell.isShown) {
+        cell.isMarked = !cell.isMarked // Toggle flag state
 
-    if (!cell.isMarked) {
-        cell.isMarked = true
-        renderCell(i, j, FLAG)
-    } else {
-        cell.isMarked = false
-        renderCell(i, j, '')
+        const elCell = document.querySelector(`[data-i="${i}"][data-j="${j}"]`)
+
+        if (!cell.isMarked) {
+            elCell.classList.add('flagged') // Apply flagged style
+            elCell.innerHTML = FLAG    // Display flag icon
+        } else {
+            elCell.classList.remove('flagged'); // Remove flagged style
+            // gBoard[i][j].isMine
+            elCell.innerHTML = '💣' // Clear the cell
+        }
     }
 }
 
-function renderCell(location, value) {
-    // Select the elCell and set the value
-    const elCell = document.querySelector(`.cell-${location.i}-${location.j}`)
-    elCell.innerHTML = value
-    elCell.classList.add('revealed')
+function checkGameOver() {
+    if ()
 }
+
+
+
+
+
+// function renderCell(location, value) {
+//     // Select the elCell and set the value
+//     const elCell = document.querySelector(`.cell-${location.i}-${location.j}`)
+//     elCell.innerHTML = value
+//     elCell.classList.add('revealed')
+// }
 
 

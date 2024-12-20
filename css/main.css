@@ -62,70 +62,11 @@ body {
     color: white;
 }
 
-/* h1:hover {
-    color: rgb(255, 162, 0);
-    cursor: pointer;
+.cell.flagged {
+    color: black;
+    /* Make the flag icon visible */
 }
 
-/* .seat:active {
-    background-color: darkblue;
-    transform: scale(0.95);
-} */
-
-/* :root {
-    --seat-color: #5ae972;
-    --selected-color: orange;
-    --booked-color: red
+.cell.revealed.flagged {
+    color: transparent;
 }
-
-h1 {
-    text-align: center;
-    text-shadow: 5px 5px 5px;
-}
-
-.cinema {
-    width: 400px;
-    margin: 60px auto;
-}
-
-table {
-    border-collapse: separate;
-    border-spacing: 10px;
-}
-
-.cell {
-    width: 50px;
-    height: 50px;
-    border-radius: 2px;
-}
-
-.seat {
-    background-color: var(--seat-color);
-    cursor: pointer;
-}
-
-.selected {
-    background-color: var(--selected-color);
-}
-
-.booked {
-    background-color: var(--booked-color);
-}
-
-.btn-book-seat {
-    width: 100%;
-    border-radius: 10%;
-}
-
-.seat.booked:hover {
-    background-color: gray;
-    cursor: not-allowed;
-}
-
-
-.highlight {
-    background-color: transparent;
-    border: none;
-    transition: 1s;
-
-} */
