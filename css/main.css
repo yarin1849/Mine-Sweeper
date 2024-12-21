@@ -1,72 +1,115 @@
+/* General Layout */
+body {
+    background: linear-gradient(135deg, #37474f, #607d8b);
+    font-family: 'Roboto', Arial, Helvetica, sans-serif;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+/* Board Styling */
 .board {
-    border-collapse: collapse;
-    margin: 20px auto;
-    flex: 1
+    border-collapse: separate;
+    border-spacing: 5px;
+    margin: 20px 0;
+    display: inline-block;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
 .cell {
-    width: 30px;
-    height: 30px;
-    border: 1px solid black;
+    width: 40px;
+    height: 40px;
+    background-color: #546e7a;
     text-align: center;
     vertical-align: middle;
-    background-color: rgb(128, 128, 128);
+    border-radius: 8px;
     cursor: pointer;
     color: transparent;
+    font-size: 18px;
+    font-weight: bold;
+    transition: transform 0.2s, background-color 0.3s;
+    user-select: none;
+}
+
+.cell:hover {
+    background-color: #78909c;
+    transform: scale(1.1);
 }
 
 .cell.revealed {
-    background-color: rgb(166, 166, 166);
-    color: black;
+    background-color: #b0bec5;
+    color: #263238;
     cursor: default;
+    transform: none;
+}
+
+.cell.flagged {
+    background-color: #ff5722;
+    color: white;
+    font-size: 24px;
+}
+
+.cell.revealed.flagged {
+    background-color: #e57373;
+    color: white;
 }
 
 .pressed {
     background-color: lightgray;
+    transform: none;
 }
 
-
-.shown {
-    /* background-color: aqua; */
-    background-color: blue;
-    border: none;
-}
-
+/* Footer */
 footer {
     position: fixed;
     bottom: 0;
     left: 0;
     width: 100%;
-    background-color: #f1f1f1;
+    background-color: #263238;
     text-align: center;
     padding: 10px;
     font-size: 14px;
-    font-family: Arial, Helvetica, sans-serif;
-    color: #333;
+    color: #cfd8dc;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Buttons */
+.btn-restart,
+.btn-level {
+    background-color: #ff9800;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s, background-color 0.3s;
+}
+
+.btn-restart:hover,
+.btn-level:hover {
+    background-color: #ff6f00;
+    transform: scale(1.1);
 }
 
 .btn-restart {
-    flex: 10px;
-    border-radius: 5px;
     display: none;
-    position: fixed;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    padding: 5px;
-    cursor: pointer;
 }
 
-body {
-    background: #838383;
-    font-family: Arial, Helvetica, sans-serif;
-    color: white;
-}
-
-.cell.flagged {
-    color: black;
-    /* Make the flag icon visible */
-}
-
-.cell.revealed.flagged {
-    color: transparent;
+/* Header */
+header {
+    font-size: 36px;
+    font-weight: bold;
+    color: #ffab40;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+    margin-bottom: 20px;
 }
